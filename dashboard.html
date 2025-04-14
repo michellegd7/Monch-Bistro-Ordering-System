@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Monch Bistro - Order</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background-color: #f5f5f5;
+            color: #333;
+        }
+
+        header {
+            background-color: #242524;
+            color: white;
+            padding: 15px 20px;
+            position: relative;
+        }
+
+        .header-title {
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .nav-tabs {
+            display: flex;
+            gap: 20px;
+            font-size: 14px;
+        }
+
+        .nav-tabs a {
+            color: white;
+            text-decoration: none;
+        }
+
+        .cart-summary {
+            position: absolute;
+            right: 20px;
+            top: 15px;
+            text-align: right;
+        }
+
+        .cart-items {
+            font-size: 14px;
+            margin-bottom: 5px;
+        }
+
+        .cart-total {
+            font-weight: bold;
+            font-size: 16px;
+        }
+
+        .auth-link {
+            display: block;
+            text-align: right;
+            margin-top: 10px;
+            font-size: 14px;
+            color: white;
+            text-decoration: underline;
+            cursor: pointer;
+        }
+
+        .hero {
+            background: url('bg1.jpg') no-repeat center center/cover;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .hero-slogan {
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        .restaurant-name {
+            font-size: 20px;
+            font-weight: bold;
+        }
+
+        .restaurant-info {
+            display: flex;
+            justify-content: space-between;
+            padding: 15px 20px;
+            background-color: white;
+            border-bottom: 1px solid #eee;
+        }
+
+        .info-item {
+            font-size: 14px;
+        }
+
+        .search-bar {
+            padding: 15px 20px;
+            background-color: white;
+        }
+
+        .search-input {
+            width: 100%;
+            padding: 10px 15px;
+            border: 1px solid #ddd;
+            border-radius: 20px;
+            font-size: 14px;
+        }
+
+        .category-tabs {
+            display: flex;
+            overflow-x: auto;
+            padding: 15px 20px;
+            background-color: rgb(224, 138, 39);
+            gap: 15px;
+            white-space: nowrap;
+        }
+
+        .category-tab {
+            font-size: 14px;
+            padding: 5px 10px;
+            border-radius: 15px;
+            background-color: rgb(224, 138, 39);
+        }
+
+        .offers-section {
+            padding: 20px;
+        }
+
+        .section-title {
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+
+        .offer-cards {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+        }
+
+        .offer-card {
+            background-color: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        .offer-image {
+            height: 120px;
+            background: url('bg7.jpg') no-repeat center center/cover;
+            background-color: #eee;
+            position: relative;
+        }
+
+        .offer-image2 {
+            height: 120px;
+            background: url('bg5.jpg') no-repeat center center/cover;
+            background-color: #eee;
+            position: relative;
+        }
+
+        .offer-year {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            background-color: rgba(0,0,0,0.5);
+            color: white;
+            padding: 2px 8px;
+            border-radius: 10px;
+            font-size: 12px;
+        }
+
+        .offer-details {
+            padding: 10px;
+        }
+
+        .offer-restaurant {
+            font-size: 14px;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        .offer-name {
+            font-size: 13px;
+        }
+
+        .add-to-cart-btn {
+            margin-top: 10px;
+            background-color: #4CAF50;
+            color: white;
+            padding: 6px 12px;
+            font-size: 13px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .add-to-cart-btn:hover {
+            background-color: #45a049;
+        }
+
+        .buy-now-header-btn {
+            background-color: #ff9800;
+            color: white;
+            padding: 6px 12px;
+            font-size: 13px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .buy-now-header-btn:hover {
+            background-color: #e68900;
+        }
+
+        .cart-summary {
+        position: absolute;
+        right: 20px;
+        top: 15px;
+        text-align: right;
+        }
+
+        .cart-popup {
+            position: absolute;
+            top: 60px;
+            right: 20px;
+            width: 300px;
+            background-color: #000000;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            padding: 15px;
+            z-index: 10;
+            display: none;
+        }
+
+        .cart-popup h3 {
+            font-size: 16px;
+            margin-bottom: 10px;
+        }
+
+        .cart-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 8px;
+            font-size: 14px;
+        }
+
+        .cart-item-name {
+            flex: 1;
+        }
+
+        .cart-item-qty {
+            margin: 0 8px;
+            color: #555;
+            font-weight: bold;
+        }
+
+        .remove-btn {
+            background-color: #ff4d4d;
+            border: none;
+            color: white;
+            padding: 3px 6px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 12px;
+        }
+
+        .toggle-cart-btn {
+            background-color: #4CAF50;
+            color: white;
+            padding: 6px 12px;
+            font-size: 13px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .toggle-cart-btn:hover {
+            background-color: #45a049;
+        }
+
+        .checkout-btn {
+            margin-top: 10px;
+            width: 100%;
+            background-color: #ff9800;
+            color: white;
+            padding: 6px 12px;
+            font-size: 14px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .checkout-btn:hover {
+            background-color: #e68900;
+        }
+
+        .account-popup {
+            position: absolute;
+            right: 20px;
+            top: 40px;
+            background-color: #000;
+            color: white;
+            padding: 10px;
+            border-radius: 8px;
+            display: none;
+            z-index: 10;
+        }
+
+        .logout-btn {
+            background-color: #ff4d4d;
+            color: white;
+            padding: 6px 12px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .logout-btn:hover {
+            background-color: #e13a3a;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-title">ORDER</div>
+        <div class="nav-tabs">
+            <a href="#">Home Order</a>
+            <a href="#">Special Offers</a>
+            <a href="#">Restaurants</a>
+            <a href="#">Track</a>
+        </div>
+        <div class="cart-summary">
+            <button class="toggle-cart-btn" onclick="toggleCart()">Cart (<span id="cart-count">0</span>)</button>
+            <div class="cart-popup" id="cart-popup">
+                <h3>Your Cart</h3>
+                <div id="cart-items-list"></div>
+                <div class="cart-total" id="cart-total-price">Total: ₱0.00</div>
+                <button class="checkout-btn" onclick="checkoutNow()">Checkout</button>
+            </div>
+        </div>
+        <div class="auth-link" onclick="toggleAccountPopup()">Your Account</div>
+        <div class="account-popup" id="account-popup">
+            <button class="logout-btn" onclick="logout()">Logout</button>
+        </div>
+    </header>
+
+    <div class="hero">
+        <div class="hero-slogan">I'm Lovin' it!</div>
+        <div class="restaurant-name">Monch Bistro</div>
+    </div>
+
+    <div class="restaurant-info">
+        <div class="info-item">Delivery in 15-20 Minutes</div>
+        <div class="info-item">Open until 10:00 pm</div>
+    </div>
+
+    <div class="search-bar">
+        <input type="text" class="search-input" placeholder="Search from menu...">
+    </div>
+
+    <div class="category-tabs">
+        <div class="category-tab">Offers</div>
+        <div class="category-tab">Burgers</div>
+        <div class="category-tab">Fries</div>
+        <div class="category-tab">Snacks</div>
+        <div class="category-tab">Salads</div>
+        <div class="category-tab">Cold drinks</div>
+        <div class="category-tab">Happy Meal®</div>
+        <div class="category-tab">Desserts</div>
+        <div class="category-tab">Hot drinks</div>
+        <div class="category-tab">Sauces</div>
+    </div>
+
+    <div class="offers-section">
+        <div class="section-title">Menu Items from Monch Bistro Restaurant</div>
+        <div class="offer-cards">
+            <div class="offer-card">
+                <div class="offer-image">
+                    <div class="offer-year">2025</div>
+                </div>
+                <div class="offer-details">
+                    <div class="offer-restaurant">Monch Bistro</div>
+                    <div class="offer-name">Cocktail Drinks - 80.00 PHP</div>
+                    <button class="add-to-cart-btn" onclick="addToCart('Cocktail Drinks', 80)">Add to Cart</button>
+                </div>
+            </div>
+            <div class="offer-card">
+                <div class="offer-image2">
+                    <div class="offer-year">2025</div>
+                </div>
+                <div class="offer-details">
+                    <div class="offer-restaurant">Monch Bistro</div>
+                    <div class="offer-name">Sizzling Beef Curry - 150.00 PHP</div>
+                    <button class="add-to-cart-btn" onclick="addToCart('Sizzling Beef Curry', 150)">Add to Cart</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let cart = {};
+    
+        function addToCart(itemName, price) {
+            if (cart[itemName]) {
+                cart[itemName].qty += 1;
+            } else {
+                cart[itemName] = { price: price, qty: 1 };
+            }
+            updateCartDisplay();
+        }
+    
+        function removeFromCart(itemName) {
+            if (cart[itemName]) {
+                cart[itemName].qty -= 1;
+                if (cart[itemName].qty <= 0) {
+                    delete cart[itemName];
+                }
+                updateCartDisplay();
+            }
+        }
+    
+        function updateCartDisplay() {
+            const cartItemsList = document.getElementById("cart-items-list");
+            const cartCount = document.getElementById("cart-count");
+            const cartTotalPrice = document.getElementById("cart-total-price");
+
+            cartItemsList.innerHTML = "";
+            let totalCount = 0;
+            let totalPrice = 0;
+
+            for (let item in cart) {
+                const { price, qty } = cart[item];
+                totalCount += qty;
+                totalPrice += price * qty;
+
+                const itemDiv = document.createElement("div");
+                itemDiv.className = "cart-item";
+
+                itemDiv.innerHTML = `
+                    <span class="cart-item-name">${item}</span>
+                    <span class="cart-item-qty">x${qty}</span>
+                    <button class="remove-btn" onclick="removeFromCart('${item}')">Remove</button>
+                `;
+
+                cartItemsList.appendChild(itemDiv);
+            }
+
+            cartCount.textContent = totalCount;
+            cartTotalPrice.textContent = `Total: ₱${totalPrice.toFixed(2)}`;
+        }
+
+        function toggleCart() {
+            const cartPopup = document.getElementById("cart-popup");
+            cartPopup.style.display = cartPopup.style.display === "block" ? "none" : "block";
+        }
+
+        function toggleAccountPopup() {
+            const accountPopup = document.getElementById("account-popup");
+            accountPopup.style.display = accountPopup.style.display === "block" ? "none" : "block";
+        }
+
+        function logout() {
+            window.location.href = "front.html";
+        }
+
+        function checkoutNow() {
+            if (Object.keys(cart).length === 0) {
+                alert("Your cart is empty!");
+                return;
+            }
+    
+            // Save to localStorage
+            localStorage.setItem("cart", JSON.stringify(cart));
+            // Redirect
+            window.location.href = "delivery.html";
+        }
+
+        const isLoggedIn = true;
+        const authLink = document.getElementById("auth-link");
+        if (isLoggedIn) {
+            authLink.textContent = "Your Account";
+            authLink.href = "#account";
+        } else {
+            authLink.textContent = "Login/Signup";
+            authLink.href = "#login";
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Monch Bistro - Delivery Checkout</title>
+    <style>
+        body {
+            background-color: #313030;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 40px auto;
+            background: url('bg6.jpg') no-repeat center center/cover;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        h2 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 6px;
+            font-weight: bold;
+        }
+
+        input, textarea, select {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            font-size: 14px;
+        }
+
+        button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            width: 100%;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        .back-link {
+            display: block;
+            text-align: center;
+            margin-top: 15px;
+            color: #555;
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Delivery Information</h2>
+        <form id="delivery-form">
+            <label for="fullname">Full Name</label>
+            <input type="text" id="fullname" name="fullname" required>
+
+            <label for="phone">Phone Number</label>
+            <input type="tel" id="phone" name="phone" required>
+
+            <label for="address">Delivery Address</label>
+            <textarea id="address" name="address" rows="4" required></textarea>
+
+            <label for="payment">Payment Method</label>
+            <select id="payment" name="payment">
+                <option value="cod">Cash on Delivery</option>
+            </select>
+
+            <button type="submit">Confirm Order</button>
+        </form>
+        <a href="dashboard.html" class="back-link">← Back to Menu</a>
+    </div>
+
+    <script>
+        document.getElementById("delivery-form").addEventListener("submit", function(event) {
+            event.preventDefault();
+            alert("Thank you! Your order has been placed successfully.");
+            window.location.href = "last.html"; // Redirect back or to an order status page
+        });
+    </script>
+</body>
+</html>

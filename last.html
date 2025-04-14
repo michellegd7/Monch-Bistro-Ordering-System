@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Monch Bistro Info</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: url('bg8.jpg') no-repeat center center/cover;
+      margin: 0;
+      padding: 0;
+      color: #333;
+    }
+    .info-container {
+      display: flex;
+      justify-content: space-around;
+      padding: 40px 20px;
+      background-color: rgba(255, 255, 255, 0.8);
+      border-radius: 20px;
+      margin: 60px auto;
+      max-width: 1200px;
+    }
+    .section {
+      flex: 1;
+      margin: 0 20px;
+    }
+    h3 {
+      font-size: 1.2rem;
+      color: #2a2a2a;
+      border-bottom: 2px solid #444;
+      padding-bottom: 5px;
+    }
+    .section p,
+    .section li {
+      margin: 8px 0;
+    }
+    ul {
+      list-style: none;
+      padding: 0;
+    }
+    strong {
+      font-weight: bold;
+    }
+
+    /* Back Button Styles */
+    .back-button {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background-color: #333;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      padding: 12px 18px;
+      font-size: 14px;
+      cursor: pointer;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      transition: background-color 0.3s ease;
+    }
+    .back-button:hover {
+      background-color: #555;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="info-container">
+    <!-- Delivery Information -->
+    <div class="section delivery-info">
+      <h3>📦 Delivery information</h3>
+      <ul>
+        <li><strong>Monday:</strong> 9:00 AM – 8:00 PM</li>
+        <li><strong>Tuesday:</strong> 9:00 AM – 8:00 PM</li>
+        <li><strong>Wednesday:</strong> 9:00 AM – 8:00 PM</li>
+        <li><strong>Thursday:</strong> 9:00 AM – 8:00 PM</li>
+        <li><strong>Friday:</strong> 9:00 AM – 8:00 PM</li>
+        <li><strong>Saturday:</strong> 9:00 AM – 8:00 PM</li>
+        <li><strong>Sunday:</strong> CLOSED</li>
+      </ul>
+      <p><strong>Estimated time until delivery:</strong> 20 min</p>
+    </div>
+
+    <!-- Contact Information -->
+    <div class="section contact-info">
+      <h3>📞 Contact information</h3>
+      <p>If you have allergies or other dietary restrictions, please contact the restaurant. The restaurant will provide food-specific information upon request.</p>
+      <p><strong>Social Media Account:</strong></p>
+      <p>FB: Monch Bistro<br>IG: monch.bistro</p>
+    </div>
+
+    <!-- Operational Times -->
+    <div class="section operational-times">
+      <h3>🕒 Operational Times</h3>
+      <ul>
+        <li><strong>Monday:</strong> 9:00 AM – 10:00 PM</li>
+        <li><strong>Tuesday:</strong> 9:00 AM – 10:00 PM</li>
+        <li><strong>Wednesday:</strong> 9:00 AM – 10:00 PM</li>
+        <li><strong>Thursday:</strong> 9:00 AM – 10:00 PM</li>
+        <li><strong>Friday:</strong> 9:00 AM – 10:00 PM</li>
+        <li><strong>Saturday:</strong> 9:00 AM – 10:00 PM</li>
+        <li><strong>Sunday:</strong> CLOSED</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Back to Main Menu Button -->
+  <button class="back-button" onclick="window.location.href='dashboard.html'">⬅ Back to Main Menu</button>
+
+</body>
+</html>

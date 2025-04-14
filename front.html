@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Monch Bistro - Login</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h1 class="title">Welcome to Monch Bistro</h1>
+  <div class="container">
+    <div class="login-box">
+      <h2>Login</h2>
+      <form id="loginForm">
+        <label for="username">Username</label>
+        <input type="text" id="username" name="username" required />
+
+        <label for="password">Password</label>
+        <input type="password" id="password" name="password" required />
+
+        <button type="submit">Confirm</button>
+        <p class="error-message" id="errorMsg">Invalid username or password. Please try again.</p>
+      </form>
+      <p class="signup-link">Don't have an account? <a href="createaccount.html">Sign up</a></p>
+    </div>
+    <div class="image-side"></div>
+  </div>
+
+  <script>
+    const form = document.getElementById('loginForm');
+    const errorMsg = document.getElementById('errorMsg');
+
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+
+      const username = document.getElementById('username').value;
+      const password = document.getElementById('password').value;
+
+      const storedUsers = JSON.parse(localStorage.getItem('users')) || [];
+
+      const userExists = storedUsers.some(user => user.username === username && user.password === password);
+
+      if (userExists || (username === "customer123" && password === "customer123")) {
+        window.location.href = "dashboard.html";
+      } else {
+        errorMsg.style.display = "block";
+      }
+    });
+  </script>
+
+</body>
+</html>
