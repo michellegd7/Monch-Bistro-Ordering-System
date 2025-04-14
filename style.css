@@ -1,16 +1,16 @@
 /*front*/
 
-@import url('https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;400;600&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;400;600&display=swap");
 
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: 'Poppins', sans-serif;
+  font-family: "Poppins", sans-serif;
 }
 
 body {
-  background: url('bg1.jpg') no-repeat center center/cover;
+  background: url("bg1.jpg") no-repeat center center/cover;
   height: 100vh;
   display: flex;
   align-items: center;
@@ -20,7 +20,7 @@ body {
 }
 
 .title {
-  font-family: 'Great Vibes', cursive;
+  font-family: "Great Vibes", cursive;
   font-size: 5rem;
   text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.5);
   position: absolute;
@@ -107,7 +107,7 @@ button:hover {
 
 .image-side {
   width: 50%;
-  background: url('bg2.jpg') no-repeat center center/cover;
+  background: url("bg2.jpg") no-repeat center center/cover;
   min-height: 400px;
 }
 
@@ -116,7 +116,8 @@ button:hover {
     flex-direction: column;
   }
 
-  .image-side, .login-box {
+  .image-side,
+  .login-box {
     width: 100%;
   }
 
@@ -134,7 +135,7 @@ button:hover {
 
 .left {
   flex: 1;
-  background: url('bg4.jpg') no-repeat center center;
+  background: url("bg4.jpg") no-repeat center center;
   background-size: cover;
 }
 
@@ -228,7 +229,8 @@ button:hover {
     flex-direction: column;
   }
 
-  .left, .right {
+  .left,
+  .right {
     flex: unset;
     height: 50vh;
     width: 100%;
@@ -237,4 +239,328 @@ button:hover {
   .right {
     padding: 30px;
   }
+}
+
+/* DASHBOARD */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+
+body {
+  background-color: #f5f5f5;
+  color: #333;
+}
+
+header {
+  background-color: #242524;
+  color: white;
+  padding: 15px 20px;
+  position: relative;
+}
+
+.header-title {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.nav-tabs {
+  display: flex;
+  gap: 20px;
+  font-size: 14px;
+}
+
+.nav-tabs a {
+  color: white;
+  text-decoration: none;
+}
+
+.cart-summary {
+  position: absolute;
+  right: 20px;
+  top: 15px;
+  text-align: right;
+}
+
+.cart-items {
+  font-size: 14px;
+  margin-bottom: 5px;
+}
+
+.cart-total {
+  font-weight: bold;
+  font-size: 16px;
+}
+
+.auth-link {
+  display: block;
+  text-align: right;
+  margin-top: 10px;
+  font-size: 14px;
+  color: white;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.hero {
+  background: url("bg1.jpg") no-repeat center center/cover;
+  padding: 20px;
+  text-align: center;
+}
+
+.hero-slogan {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.restaurant-name {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.restaurant-info {
+  display: flex;
+  justify-content: space-between;
+  padding: 15px 20px;
+  background-color: white;
+  border-bottom: 1px solid #eee;
+}
+
+.info-item {
+  font-size: 14px;
+}
+
+.search-bar {
+  padding: 15px 20px;
+  background-color: white;
+}
+
+.search-input {
+  width: 100%;
+  padding: 10px 15px;
+  border: 1px solid #ddd;
+  border-radius: 20px;
+  font-size: 14px;
+}
+
+.category-tabs {
+  display: flex;
+  overflow-x: auto;
+  padding: 15px 20px;
+  background-color: rgb(224, 138, 39);
+  gap: 15px;
+  white-space: nowrap;
+}
+
+.category-tab {
+  font-size: 14px;
+  padding: 5px 10px;
+  border-radius: 15px;
+  background-color: rgb(224, 138, 39);
+}
+
+.offers-section {
+  padding: 20px;
+}
+
+.section-title {
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 15px;
+}
+
+.offer-cards {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 15px;
+}
+
+.offer-card {
+  background-color: white;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+.offer-image {
+  height: 120px;
+  background: url("bg7.jpg") no-repeat center center/cover;
+  background-color: #eee;
+  position: relative;
+}
+
+.offer-image2 {
+  height: 120px;
+  background: url("bg5.jpg") no-repeat center center/cover;
+  background-color: #eee;
+  position: relative;
+}
+
+.offer-year {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+  padding: 2px 8px;
+  border-radius: 10px;
+  font-size: 12px;
+}
+
+.offer-details {
+  padding: 10px;
+}
+
+.offer-restaurant {
+  font-size: 14px;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.offer-name {
+  font-size: 13px;
+}
+
+.add-to-cart-btn {
+  margin-top: 10px;
+  background-color: #4caf50;
+  color: white;
+  padding: 6px 12px;
+  font-size: 13px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.add-to-cart-btn:hover {
+  background-color: #45a049;
+}
+
+.buy-now-header-btn {
+  background-color: #ff9800;
+  color: white;
+  padding: 6px 12px;
+  font-size: 13px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.buy-now-header-btn:hover {
+  background-color: #e68900;
+}
+
+.cart-summary {
+  position: absolute;
+  right: 20px;
+  top: 15px;
+  text-align: right;
+}
+
+.cart-popup {
+  position: absolute;
+  top: 60px;
+  right: 20px;
+  width: 300px;
+  background-color: #000000;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  padding: 15px;
+  z-index: 10;
+  display: none;
+}
+
+.cart-popup h3 {
+  font-size: 16px;
+  margin-bottom: 10px;
+}
+
+.cart-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+  font-size: 14px;
+}
+
+.cart-item-name {
+  flex: 1;
+}
+
+.cart-item-qty {
+  margin: 0 8px;
+  color: #555;
+  font-weight: bold;
+}
+
+.remove-btn {
+  background-color: #ff4d4d;
+  border: none;
+  color: white;
+  padding: 3px 6px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 12px;
+}
+
+.toggle-cart-btn {
+  background-color: #4caf50;
+  color: white;
+  padding: 6px 12px;
+  font-size: 13px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.toggle-cart-btn:hover {
+  background-color: #45a049;
+}
+
+.checkout-btn {
+  margin-top: 10px;
+  width: 100%;
+  background-color: #ff9800;
+  color: white;
+  padding: 6px 12px;
+  font-size: 14px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.checkout-btn:hover {
+  background-color: #e68900;
+}
+
+.account-popup {
+  position: absolute;
+  right: 20px;
+  top: 40px;
+  background-color: #000;
+  color: white;
+  padding: 10px;
+  border-radius: 8px;
+  display: none;
+  z-index: 10;
+}
+
+.logout-btn {
+  background-color: #ff4d4d;
+  color: white;
+  padding: 6px 12px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.logout-btn:hover {
+  background-color: #e13a3a;
 }
